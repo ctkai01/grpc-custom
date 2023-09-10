@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package discoutn;
+option go_package = "grpc_example/discount/grpc/pb";
+
+message DiscountRequest {
+    int32 productID = 1;  // Field for the first number
+}
+
+message DiscountResponse {
+    int32 percentDiscount = 1;  // Field for the result of the addition
+}
+
+service Discount {
+    rpc GetDiscountByProductID(DiscountRequest) returns (DiscountResponse);
+}

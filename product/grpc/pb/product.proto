@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package discoutn;
+option go_package = "grpc_example/product/grpc/pb";
+
+message GetProductRequest {
+    int32 productID = 1;  // Field for the first number
+}
+
+message GetProductResponse {
+   Product product = 1;  // Field for the result of the addition
+}
+
+message SearchProductRequest {
+    string search = 1;  // Field for the first number
+}
+
+message SearchProductResponse {
+    repeated Product products = 1;  // Field for the result of the addition
+}
+
+message Product {
+    int32 productID = 1;
+    string name = 2;
+    int32 price = 3;
+}
+
+service Products {
+    rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+}
